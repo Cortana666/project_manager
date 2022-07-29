@@ -1,10 +1,10 @@
 <?php
+    require_once 'config.php';
+    
     $project = [];
-    $config_dir = '/etc/nginx/conf.d/';
-    // $config_dir = '/usr/local/etc/nginx/servers/';
     $config = scandir($config_dir);
     foreach ($config as $config_name) {
-        if (in_array($config_name, ['.', '..'])) {
+        if (in_array($config_name, ['.', '..', 'project.conf', 'php-fpm.conf'])) {
             continue;
         }
 
@@ -32,7 +32,7 @@
 <body>
     <div>
         <a href="add.php">添加模板项目</a>
-        <a href="add.php">添加自定义项目</a>
+        <a href="self.php">添加自定义项目</a>
     </div>
     <div>
         <table border="1">

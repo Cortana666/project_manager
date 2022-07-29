@@ -1,6 +1,5 @@
 <?php
-    $config_dir = '/etc/nginx/conf.d/';
-    // $config_dir = '/usr/local/etc/nginx/servers/';
+    require_once 'config.php';
 
     if (!empty($_POST)) {
         if (empty($_POST['name']) || empty($_POST['domain']) || empty($_POST['root'])) {
@@ -8,33 +7,33 @@
         }
 
         $config_content = 'server {
-            listen       80;
-            server_name  '.$_POST['domain'].';
-        
-            charset utf-8;
-        
-            root   '.$_POST['root'].';
+    listen       80;
+    server_name  '.$_POST['domain'].';
 
-            location / {
-                index  index.php;
-            }
-        
-            error_page  404              /404.html;
-        
-            error_page   500 502 503 504  /50x.html;
-            location = /50x.html {
-                root   html;
-            }
-        
-            location ~ \.php$ {
-                fastcgi_pass   127.0.0.1:9000;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-            }
-        }';
+    charset utf-8;
 
-        file_put_contents($config_dir.$_POST['name'], $config_content);
+    root   '.$_POST['root'].';
+
+    location / {
+        index  index.php;
+    }
+
+    error_page  404              /404.html;
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}';
+
+        file_put_contents($config_dir.$_POST['name'].'.conf', $config_content);
 
         header('Location:index.php');
     }

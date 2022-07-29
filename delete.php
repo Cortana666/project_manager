@@ -1,6 +1,5 @@
 <?php
-    $config_dir = '/etc/nginx/conf.d/';
-    // $config_dir = '/usr/local/etc/nginx/servers/';
+    require_once 'config.php';
 
     if (!empty($_GET)) {
         if (empty($_GET['name'])) {
