@@ -4,6 +4,7 @@
     if (!empty($_POST)) {
         if (empty($_POST['name']) || empty($_POST['domain']) || empty($_POST['root'])) {
             echo 'error';
+            exit;
         }
 
         $config_content = 'server {

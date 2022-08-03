@@ -4,6 +4,7 @@
     if (!empty($_POST)) {
         if (empty($_POST['name']) || empty($_POST['content'])) {
             echo 'error';
+            exit;
         }
 
         file_put_contents($config_dir.$_POST['name'].'.conf', $_POST['content']);

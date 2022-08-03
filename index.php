@@ -44,10 +44,13 @@
             </tr>
             <?php foreach ($project as $value) { ?>
             <tr>
-                <td><?php echo $value['name']; ?></td>
+                <td><?php echo str_replace('.conf', '', $value['name']); ?></td>
                 <td><?php echo $value['domain']; ?></td>
                 <td><?php echo $value['root']; ?></td>
-                <td><a href="delete.php?name=<?php echo $value['name']; ?>">删除</a></td>
+                <td>
+                    <a href="edit.php?name=<?php echo $value['name']; ?>">编辑</a>
+                    <a href="delete.php?name=<?php echo $value['name']; ?>">删除</a>
+                </td>
             </tr>
             <?php } ?>
         </table>
