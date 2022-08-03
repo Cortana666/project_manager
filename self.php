@@ -28,7 +28,7 @@
     <div>
         <form action="self.php" method="POST">
             名称：<input type="text" name="name"><br/>
-            内容：<textarea name="content" cols="30" rows="10"></textarea><br/>
+            内容：<textarea name="content" cols="180" rows="60"></textarea><br/>
             <input type="submit" value="添加">
         </form>
     </div>

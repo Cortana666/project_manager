@@ -34,7 +34,7 @@
     <div>
         <form action="edit.php" method="POST">
             名称：<input type="text" name="name" value="<?php echo str_replace('.conf', '', $_GET['name']); ?>"><br/>
-            内容：<textarea name="content" cols="30" rows="10"><?php echo $content; ?></textarea><br/>
+            内容：<textarea name="content" cols="180" rows="60"><?php echo $content; ?></textarea><br/>
             <input type="submit" value="修改">
         </form>
     </div>
